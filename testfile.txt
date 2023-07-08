@@ -1,1 +1,24 @@
 welcome
+n = int(input("Enter the number of houses (n): "))
+m = int(input("Enter the number of packages (m): "))
+x = int(input("Enter the value of x: (n): "))
+
+stops = []
+current_house = 1
+dp = 0
+
+while dp < m:
+    stops.append(current_house)
+    dp += 1
+
+    if dp == m:
+        break
+
+    current_house = (current_house + x) % n
+    if current_house ==0: #If the current house become 0, set it to n
+        current_house = n
+
+pass_count = (dp - 1) // n
+
+print("Path taken by the chef: ", stops)
+print("Total number of times the Chef passes the starting point: ", pass_count)
